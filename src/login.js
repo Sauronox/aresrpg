@@ -1,4 +1,4 @@
-import { dimensionCodec } from './world/codec.js'
+import { dimensionCodec, overworld } from './world/codec.js'
 import { item_to_slot, empty_slot } from './items.js'
 
 export default function login({
@@ -17,11 +17,12 @@ export default function login({
 
   client.write('login', {
     entityId,
+    isHardcore: false,
     gameMode,
     previousGameMode: 255,
     worldNames,
     dimensionCodec,
-    dimension: 'minecraft:overworld',
+    dimension: overworld,
     worldName,
     hashedSeed: [0, 0],
     maxPlayers: 32,
